@@ -5,8 +5,9 @@ import { ThemeContext } from "../../context/Context.tsx";
 
 const Sidebar = () => {
   const [extended, setExtended] = useState(true);
-  const { previousPrompt, setUserData, setShowResult, onSent }: any = useContext(ThemeContext);
-  const menuRef:any = useRef(null);
+  const { previousPrompt, setUserData, setShowResult, onSent }: any =
+    useContext(ThemeContext);
+  const menuRef: any = useRef(null);
 
   function loadPrompt(prompt: string) {
     onSent(prompt);
@@ -26,6 +27,18 @@ const Sidebar = () => {
 
   function handleActive() {
     setExtended((prevState: boolean) => !prevState);
+  }
+
+  function handleHelp()
+  {
+      const path = 'https://gemini.google.com/u/1/faq'
+      window.location.href = path
+  }
+
+  function handleActivity()
+  {
+    const path = 'https://myactivity.google.com/u/1/product/gemini?utm_source=gemini'
+    window.location.href = path
   }
 
   return (
@@ -65,15 +78,19 @@ const Sidebar = () => {
           ) : null}
         </div>
         <div className="bottom">
-          <div className="bottom-item recent-entry">
+          <div className={`bottom-item ${extended ? 'recent-entry' : 'closed-entry'} `} onClick={handleHelp}>
             <img src={asset.question_icon} alt="help" />
-            {extended ? <p>Help</p> : null}
+            {extended ? (
+              <p>Help</p>
+            ) : null}
           </div>
-          <div className="bottom-item recent-entry">
+          <div className={`bottom-item ${extended ? 'recent-entry' : 'closed-entry'} `} onClick={handleActivity}>
             <img src={asset.history_icon} alt="activity" />
-            {extended ? <p>Activity</p> : null}
+            {extended ? (
+              <a>Activity</a>
+            ) : null}
           </div>
-          <div className="bottom-item recent-entry">
+          <div className={`bottom-item ${extended ? 'recent-entry' : 'closed-entry'} `}>
             <img src={asset.setting_icon} alt="setting" />
             {extended ? <p>Settings</p> : null}
           </div>

@@ -35,6 +35,10 @@ const Main = () => {
   };
 
   const handleKeyPress = (e) => {
+    if(input === '')
+    {
+      return;
+    }
     if (e.keyCode === 13 && !e.shiftKey) {
       e.preventDefault();
       onSent(input);
@@ -119,78 +123,13 @@ const Main = () => {
                   <img src={assets.gemini_icon} alt="gemini" />
                   <p
                     key={index}
-                    dangerouslySetInnerHTML={{ __html: Object.values(item)[0] }}
+                    dangerouslySetInnerHTML={{ __html: Object.values(item)[0]}}
                   ></p>
                 </div>
               </div>
             ))
           )}
         </div>
-
-        {/* <div className="middle">
-          {!showResult ? (
-            <>
-              <h1 className="hello">Hello.</h1>
-              <h1 className="question">How can I help you today?</h1>
-
-              <div className="card">
-                <div className="card-item">
-                  <p>Give me ways to add certain foods to my diet</p>
-                  <div className="icon-cover">
-                    <img src={assets.bulb_icon} alt="card-item" />
-                  </div>
-                </div>
-                <div className="card-item">
-                  <p>Flights to Tokyo and Seoul, and things to do</p>
-                  <div className="icon-cover">
-                    <img src={assets.gallery_icon} alt="card-item" />
-                  </div>
-                </div>
-                <div className="card-item">
-                  <p>Write a thank you note to my colleague</p>
-                  <div className="icon-cover">
-                    <img src={assets.compass_icon} alt="card-item" />
-                  </div>
-                </div>
-                <div className="card-item">
-                  <p>Improve the readability of the following code</p>
-                  <div className="icon-cover">
-                    <img src={assets.code_icon} alt="card-item" />
-                  </div>
-                </div>
-              </div>
-            </>
-          ) : (
-
-            
-
-            userData.map((item:UserDataType, index: number) => {
-              return (
-                <div key={index} className="result">
-                  <div className="result-title">
-                    <img src={assets.user_icon} alt="user-profile" />
-                    <p>{Object.keys(item)[0]}</p>
-                  </div>
-                  { loading ? (
-                    <div className="loader">
-                      <hr />
-                      <hr />
-                      <hr />
-                    </div>
-                  ) : (
-                    <div className="result-data">
-                      <img src={assets.gemini_icon} alt="gemini" />
-                      <p
-                        key={index}
-                        dangerouslySetInnerHTML={{ __html: Object.values(item)[0]}}
-                      ></p>
-                    </div>
-                  )}
-                </div>
-              );
-            })
-          )}
-        </div> */}
 
         <div className="bottom">
           <div className="search" onClick={handleClick}>
@@ -203,6 +142,7 @@ const Main = () => {
                 placeholder="Enter a prompt here"
                 ref={textareaRef}
                 onKeyDown={handleKeyPress}
+                autoFocus
               />
             :
                 <textarea
@@ -212,6 +152,7 @@ const Main = () => {
                 placeholder="Enter a prompt here"
                 ref={textareaRef}
                 onKeyDown={handleKeyPress}
+                autoFocus
               />
             }
             {/* <span className="icon icon-left">
@@ -226,7 +167,9 @@ const Main = () => {
           </div>
           <p>
             Gemini may display inaccurate info, including about people, so
-            double-check its responses. Your privacy and Gemini Apps
+            double-check its responses. 
+            <a href='https://support.google.com/gemini/answer/13594961?authuser=1&authuser=1&visit_id=638578758619352575-2815243213&p=privacy_notice&rd=1#privacy_notice'>
+            Your privacy and Gemini Apps</a>
           </p>
         </div>
       </div>

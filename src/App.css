@@ -161,6 +161,27 @@
   border-radius: 20px;
 }
 
+.closed-entry
+{
+  padding: 5px 0;
+  padding-left: 10px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 30px;
+  background: none;
+  cursor: pointer;
+}
+
+.closed-entry:hover
+{
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+}
+
 .sidebar .bottom
 {
   margin: 2rem 0;
@@ -355,7 +376,6 @@
   /* margin-bottom: 0; */
   padding-left: 6rem;
   width: 920px;
-
 }
 
 .main .bottom .search
@@ -408,9 +428,51 @@
   text-align: center;
 }
 
+.main .bottom p a
+{
+  color: #000;
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .main .bottom .search .icon img
 {
   width: 1.8rem;
   height: 1.8rem;
   cursor: pointer;
+}
+
+/* Extra Small Devices */
+/* Styles for phones */
+@media (max-width: 575px) {
+}
+
+/* Small Devices */
+/* Styles for tablets */
+@media (min-width: 576px) and (max-width: 767px) {
+  .active
+  {
+    width: 60px !important;  
+  }
+  .main .middle .hello
+  {
+    color: greenyellow;
+  }
+}
+
+
+/* Medium Devices */
+/* Styles for small laptops */
+@media (min-width: 768px) and (max-width: 991px) {
+}
+
+/* Large Devices */
+/* Styles for desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+/* Extra Large Devices */
+/* Styles for large desktops */
+@media (min-width: 1200px) {
 }

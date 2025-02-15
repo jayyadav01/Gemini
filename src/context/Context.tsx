@@ -11,7 +11,7 @@ const Context = (props) => {
     const [showResult, setShowResult] = useState(false)
     const [loading, setLoading] = useState(false)
     const [resultData, setResultData] = useState("")
-    const [userData, setUserData] = useState<any[]>([])
+    const [userData, setUserData] = useState([])
 
     const onSent = async(prompt:any) => {
       // console.log("context :", prompt);
